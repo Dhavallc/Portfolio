@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaval Chandra | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-foreground">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-12">
+            <button onclick="scrollToSection('intro')" class="font-[var(--font-display)] text-white font-bold text-sm tracking-widest uppercase">
+                DC
+            </button>
+
+            <!-- Desktop -->
+            <ul class="hidden sm:flex gap-1">
+                <li><button onclick="scrollToSection('intro')" data-section="intro" class="nav-link relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">Home</button></li>
+                <li><button onclick="scrollToSection('about')" data-section="about" class="nav-link relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">About</button></li>
+                <li><button onclick="scrollToSection('skills')" data-section="skills" class="nav-link relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">Skills</button></li>
+                <li><button onclick="scrollToSection('featured')" data-section="featured" class="nav-link relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">Projects</button></li>
+                <li><button onclick="scrollToSection('journey')" data-section="journey" class="nav-link relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">Journey</button></li>
+                <li><button onclick="scrollToSection('certificates')" data-section="certificates" class="nav-link relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">Certs</button></li>
+                <li><a href="#" class="relative px-3 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors text-white/50 hover:text-white/80">Resume</a></li>
+            </ul>
+
+            <!-- Mobile toggle -->
+            <button id="menu-toggle" class="sm:hidden text-white/70 hover:text-white" aria-label="Toggle menu">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path id="menu-icon-path" d="M3 6h14M3 10h14M3 14h14" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <ul id="mobile-menu" class="hidden sm:hidden bg-black/80 backdrop-blur-md border-t border-white/10 px-4 py-2">
+            <li><button onclick="scrollToSection('intro')" data-section="intro" class="nav-link block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50">Home</button></li>
+            <li><button onclick="scrollToSection('about')" data-section="about" class="nav-link block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50">About</button></li>
+            <li><button onclick="scrollToSection('skills')" data-section="skills" class="nav-link block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50">Skills</button></li>
+            <li><button onclick="scrollToSection('featured')" data-section="featured" class="nav-link block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50">Projects</button></li>
+            <li><button onclick="scrollToSection('journey')" data-section="journey" class="nav-link block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50">Journey</button></li>
+            <li><button onclick="scrollToSection('certificates')" data-section="certificates" class="nav-link block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50">Certs</button></li>
+            <li><a href="#" class="block w-full text-left py-2 text-sm uppercase tracking-wider text-white/50 hover:text-white/80">Resume</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Intro Section -->
+        <section id="intro" class="section-intro min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-6">
+            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(hsl(var(--intro-fg)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--intro-fg)) 1px, transparent 1px); background-size: 60px 60px;"></div>
+            <div class="intro-content relative z-10 text-center">
+                <p class="reveal text-base md:text-lg tracking-[0.3em] uppercase mb-8 opacity-60" style="font-family: var(--font-body)">Software Development Engineer</p>
+                <div class="overflow-hidden">
+                    <h1 class="text-[clamp(2.2rem,11vw,10rem)] font-extrabold leading-[0.85] tracking-[-0.04em] whitespace-nowrap" style="font-family: var(--font-display); color: hsl(var(--intro-accent))">
+                        <span class="char-reveal inline-block">D</span><span class="char-reveal inline-block">H</span><span class="char-reveal inline-block">A</span><span class="char-reveal inline-block">V</span><span class="char-reveal inline-block">A</span><span class="char-reveal inline-block">L</span>
+                    </h1>
+                </div>
+                <div class="overflow-hidden">
+                    <h1 class="text-[clamp(2.2rem,11vw,10rem)] font-extrabold leading-[0.85] tracking-[-0.04em] whitespace-nowrap" style="font-family: var(--font-display)">
+                        <span class="char-reveal inline-block">C</span><span class="char-reveal inline-block">H</span><span class="char-reveal inline-block">A</span><span class="char-reveal inline-block">N</span><span class="char-reveal inline-block">D</span><span class="char-reveal inline-block">R</span><span class="char-reveal inline-block">A</span>
+                    </h1>
+                </div>
+                <p class="reveal-delay-3 reveal text-sm tracking-[0.2em] uppercase mt-10" style="font-family: var(--font-body)">AI · Cloud · Backend</p>
+                <div class="reveal-delay-4 reveal mt-8 flex flex-wrap gap-4 justify-center">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 text-xs tracking-[0.15em] uppercase rounded-full border transition-all duration-300 hover:scale-105" style="font-family: var(--font-body); border-color: hsl(var(--intro-accent)); color: hsl(var(--intro-accent));">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-5 py-2.5 text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 hover:scale-105" style="font-family: var(--font-body); background: hsl(var(--intro-accent)); color: hsl(var(--intro-bg));">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Resume
+                    </a>
+                </div>
+                <div class="intro-scroll-indicator reveal-delay-4 reveal mt-10 flex flex-col items-center gap-2 opacity-45">
+                    <span class="text-xs tracking-[0.2em] uppercase" style="font-family: var(--font-body)">Scroll</span>
+                    <div class="scroll-line w-px h-8 bg-current"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-about min-h-screen py-28 md:py-40 px-6 md:px-20 lg:px-28">
+            <div class="max-w-6xl mx-auto">
+                <p class="section-kicker reveal text-sm md:text-base tracking-[0.3em] uppercase mb-12 opacity-50" style="font-family: var(--font-body)">01 — About</p>
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+                    <h2 class="reveal text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight" style="font-family: var(--font-display)">
+                        Building systems that <span style="color: hsl(var(--about-accent))">scale</span>.
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="reveal-delay-1 reveal text-lg md:text-xl leading-relaxed opacity-80" style="font-family: var(--font-body)">
+                            I am a Software Development Engineer focused on architecting robust backend systems and intelligent cloud solutions. My work bridges the gap between complex data requirements and seamless user experiences.
+                        </p>
+                        <p class="reveal-delay-2 reveal text-lg md:text-xl leading-relaxed opacity-80" style="font-family: var(--font-body)">
+                            With deep expertise in Python, C++, and cloud-native technologies, I build distributed architectures that prioritize reliability, observability, and high-throughput performance.
+                        </p>
+                        <p class="reveal-delay-3 reveal text-lg md:text-xl leading-relaxed opacity-80" style="font-family: var(--font-body)">
+                            Currently, I'm exploring the intersection of AI and infrastructure, developing tools that automate observability and streamline cloud migrations for enterprise-scale environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-skills min-h-screen py-28 md:py-40 px-6 md:px-20 lg:px-28">
+            <div class="max-w-7xl mx-auto">
+                <p class="section-kicker reveal text-sm md:text-base tracking-[0.3em] uppercase mb-20 opacity-60" style="font-family: var(--font-body)">02 — Skills & Stack</p>
+                <div class="skills-board grid grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-12 md:gap-y-14 lg:gap-y-0">
+                    <div class="skills-column">
+                        <h3 class="skill-group-label mb-10">Languages</h3>
+                        <div class="space-y-5">
+                            <div class="skill-entry reveal">JavaScript</div>
+                            <div class="skill-entry reveal-delay-1 reveal">TypeScript</div>
+                            <div class="skill-entry reveal-delay-2 reveal">Python</div>
+                            <div class="skill-entry reveal-delay-3 reveal">SQL</div>
+                        </div>
+                    </div>
+                    <div class="skills-column">
+                        <h3 class="skill-group-label mb-10">Front End</h3>
+                        <div class="space-y-5">
+                            <div class="skill-entry reveal">React</div>
+                            <div class="skill-entry reveal-delay-1 reveal">Next.js</div>
+                            <div class="skill-entry reveal-delay-2 reveal">Tailwind</div>
+                            <div class="skill-entry reveal-delay-3 reveal">Framer Motion</div>
+                        </div>
+                    </div>
+                    <div class="skills-column">
+                        <h3 class="skill-group-label mb-10">Back End</h3>
+                        <div class="space-y-5">
+                            <div class="skill-entry reveal">FastAPI</div>
+                            <div class="skill-entry reveal-delay-1 reveal">Node.js</div>
+                            <div class="skill-entry reveal-delay-2 reveal">Express</div>
+                            <div class="skill-entry reveal-delay-3 reveal">Supabase</div>
+                        </div>
+                    </div>
+                    <div class="skills-column">
+                        <h3 class="skill-group-label mb-10">Other Technologies</h3>
+                        <div class="space-y-5">
+                            <div class="skill-entry reveal">GSAP</div>
+                            <div class="skill-entry reveal-delay-1 reveal">Loki</div>
+                            <div class="skill-entry reveal-delay-2 reveal">Grafana</div>
+                            <div class="skill-entry reveal-delay-3 reveal">AWS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotlight Section -->
+        <section id="featured" class="section-featured min-h-screen py-28 md:py-40 px-6 md:px-20 lg:px-28">
+            <div class="max-w-6xl mx-auto">
+                <p class="section-kicker reveal text-sm md:text-base tracking-[0.3em] uppercase mb-6 opacity-100" style="font-family: var(--font-body); color: hsl(var(--featured-accent))">03 — Selected Projects</p>
+                <h2 class="reveal-delay-1 reveal text-3xl md:text-5xl font-bold mb-16 md:mb-24" style="font-family: var(--font-display); color: hsl(var(--featured-fg))">Projects with measurable impact</h2>
+                
+                <div class="space-y-12 md:space-y-20">
+                    <!-- Featured Project 1 -->
+                    <div class="reveal group relative">
+                        <div class="project-card relative rounded-2xl p-6 md:p-10 overflow-hidden border transition-all duration-500 hover:scale-[1.01]" style="background: hsl(var(--featured-card)); border-color: hsl(var(--featured-accent) / 0.15);">
+                            <div class="glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--featured-accent) / 0.08), transparent 60%);"></div>
+                            <div class="relative z-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+                                <div class="flex-shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-2">
+                                    <span class="spotlight-index text-5xl md:text-7xl font-black opacity-15" style="color: hsl(var(--featured-accent))">01</span>
+                                    <span class="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full" style="background: hsl(var(--featured-accent) / 0.15); color: hsl(var(--featured-accent))">99.7% detection accuracy</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[10px] tracking-[0.2em] uppercase mb-2 opacity-100" style="font-family: var(--font-body); color: hsl(var(--featured-accent))">Intelligent Observability</p>
+                                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                                        <h3 class="project-title text-xl md:text-3xl font-bold group-hover:translate-x-1 transition-transform duration-300" style="font-family: var(--font-display); color: hsl(var(--featured-fg))">AI-Powered Log Analyzer</h3>
+                                        <a href="#" target="_blank" rel="noopener noreferrer" class="live-link inline-flex items-center gap-1.5 text-[10px] md:text-xs tracking-[0.15em] uppercase px-3 py-1 rounded-full border" aria-label="View hosted project">
+                                            <span class="live-dot" aria-hidden="true"></span>
+                                            Live Demo
+                                        </a>
+                                    </div>
+                                    <p class="text-sm md:text-base leading-relaxed opacity-75 mb-5 max-w-xl" style="font-family: var(--font-body); color: hsl(var(--featured-fg))">Real-time anomaly detection across distributed microservices using transformer models. Processes millions of log entries per minute with contextual alerting and root-cause analysis.</p>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">Python</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">FastAPI</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">GCP</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">TensorFlow</span>
+                                        
+                                        <div class="ml-auto flex gap-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Featured Project 2 -->
+                    <div class="reveal group relative">
+                        <div class="project-card relative rounded-2xl p-6 md:p-10 overflow-hidden border transition-all duration-500 hover:scale-[1.01]" style="background: hsl(var(--featured-card)); border-color: hsl(var(--featured-accent) / 0.15);">
+                            <div class="glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--featured-accent) / 0.08), transparent 60%);"></div>
+                            <div class="relative z-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+                                <div class="flex-shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-2">
+                                    <span class="spotlight-index text-5xl md:text-7xl font-black opacity-15" style="color: hsl(var(--featured-accent))">02</span>
+                                    <span class="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full" style="background: hsl(var(--featured-accent) / 0.15); color: hsl(var(--featured-accent))">60% faster migrations</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[10px] tracking-[0.2em] uppercase mb-2 opacity-100" style="font-family: var(--font-body); color: hsl(var(--featured-accent))">Infrastructure Automation</p>
+                                    <h3 class="project-title text-xl md:text-3xl font-bold mb-3 group-hover:translate-x-1 transition-transform duration-300" style="font-family: var(--font-display); color: hsl(var(--featured-fg))">Cloud Migration Engine</h3>
+                                    <p class="text-sm md:text-base leading-relaxed opacity-75 mb-5 max-w-xl" style="font-family: var(--font-body); color: hsl(var(--featured-fg))">Automated infrastructure assessment and migration pipeline for legacy systems to GCP. Reduced migration timelines by 60% with intelligent dependency mapping.</p>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">GCP</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">Terraform</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">Python</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">PostgreSQL</span>
+                                        
+                                        <div class="ml-auto flex gap-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Featured Project 3 -->
+                    <div class="reveal group relative">
+                        <div class="project-card relative rounded-2xl p-6 md:p-10 overflow-hidden border transition-all duration-500 hover:scale-[1.01]" style="background: hsl(var(--featured-card)); border-color: hsl(var(--featured-accent) / 0.15);">
+                            <div class="glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--featured-accent) / 0.08), transparent 60%);"></div>
+                            <div class="relative z-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+                                <div class="flex-shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-2">
+                                    <span class="spotlight-index text-5xl md:text-7xl font-black opacity-15" style="color: hsl(var(--featured-accent))">03</span>
+                                    <span class="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full" style="background: hsl(var(--featured-accent) / 0.15); color: hsl(var(--featured-accent))">50K+ RPS</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[10px] tracking-[0.2em] uppercase mb-2 opacity-100" style="font-family: var(--font-body); color: hsl(var(--featured-accent))">Performance Engineering</p>
+                                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                                        <h3 class="project-title text-xl md:text-3xl font-bold group-hover:translate-x-1 transition-transform duration-300" style="font-family: var(--font-display); color: hsl(var(--featured-fg))">High-Throughput API Gateway</h3>
+                                        <a href="#" target="_blank" rel="noopener noreferrer" class="live-link inline-flex items-center gap-1.5 text-[10px] md:text-xs tracking-[0.15em] uppercase px-3 py-1 rounded-full border" aria-label="View hosted project">
+                                            <span class="live-dot" aria-hidden="true"></span>
+                                            Live Demo
+                                        </a>
+                                    </div>
+                                    <p class="text-sm md:text-base leading-relaxed opacity-75 mb-5 max-w-xl" style="font-family: var(--font-body); color: hsl(var(--featured-fg))">Sub-millisecond routing layer handling 50K+ RPS with intelligent rate limiting, circuit breaking, and adaptive load balancing across regional clusters.</p>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">C++</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">System Design</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">Networking</span>
+                                        
+                                        <div class="ml-auto flex gap-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Featured Project 4 -->
+                    <div class="reveal group relative">
+                        <div class="project-card relative rounded-2xl p-6 md:p-10 overflow-hidden border transition-all duration-500 hover:scale-[1.01]" style="background: hsl(var(--featured-card)); border-color: hsl(var(--featured-accent) / 0.15);">
+                            <div class="glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--featured-accent) / 0.08), transparent 60%);"></div>
+                            <div class="relative z-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+                                <div class="flex-shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-2">
+                                    <span class="spotlight-index text-5xl md:text-7xl font-black opacity-15" style="color: hsl(var(--featured-accent))">04</span>
+                                    <span class="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full" style="background: hsl(var(--featured-accent) / 0.15); color: hsl(var(--featured-accent))">2TB+ daily</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[10px] tracking-[0.2em] uppercase mb-2 opacity-100" style="font-family: var(--font-body); color: hsl(var(--featured-accent))">Data Engineering</p>
+                                    <h3 class="project-title text-xl md:text-3xl font-bold mb-3 group-hover:translate-x-1 transition-transform duration-300" style="font-family: var(--font-display); color: hsl(var(--featured-fg))">Data Pipeline Orchestrator</h3>
+                                    <p class="text-sm md:text-base leading-relaxed opacity-75 mb-5 max-w-xl" style="font-family: var(--font-body); color: hsl(var(--featured-fg))">Event-driven ETL framework processing 2TB+ daily with exactly-once guarantees, schema evolution support, and automated data quality checks.</p>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">Python</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">SQL</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">MariaDB</span>
+                                        <span class="text-[10px] md:text-xs tracking-wider uppercase px-3 py-1 rounded-full border" style="border-color: hsl(var(--featured-accent) / 0.25); color: hsl(var(--featured-accent))">GCP</span>
+                                        
+                                        <div class="ml-auto flex gap-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: hsl(var(--featured-fg))"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="journey" class="section-journey min-h-screen py-28 md:py-40 px-6 md:px-20 lg:px-28 relative overflow-hidden">
+            <div class="max-w-5xl mx-auto">
+                <p class="section-kicker reveal text-sm md:text-base tracking-[0.3em] uppercase mb-20 opacity-60" style="font-family: var(--font-body)">04 — My Journey</p>
+                <div class="space-y-8">
+                    <!-- Milestone 1 -->
+                    <div class="journey-item reveal relative rounded-2xl p-8 md:p-10 border backdrop-blur-sm group hover:scale-[1.01] transition-transform duration-300" style="background: hsl(var(--journey-bg) / 0.6); border-color: hsl(var(--journey-accent) / 0.2);">
+                        <div class="absolute top-0 left-8 right-8 h-px" style="background: linear-gradient(90deg, transparent, hsl(var(--journey-accent) / 0.5), transparent);"></div>
+                        <div class="flex flex-col md:flex-row md:items-start md:gap-10">
+                            <div class="md:w-48 shrink-0 mb-4 md:mb-0">
+                                <span class="inline-block text-[0.65rem] tracking-[0.15em] uppercase px-3 py-1 rounded-full border mb-3" style="border-color: hsl(var(--journey-accent) / 0.4); color: hsl(var(--journey-accent))">Experience</span>
+                                <p class="text-xs tracking-[0.1em] uppercase opacity-50" style="font-family: var(--font-body); color: hsl(var(--journey-accent))">Aug 2024 — Present</p>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl md:text-3xl font-bold leading-tight mb-1" style="font-family: var(--font-display)">Software Development Engineer</h3>
+                                <p class="text-sm opacity-50 mb-3" style="font-family: var(--font-body)">TSIM, Mumbai</p>
+                                <p class="text-sm leading-relaxed opacity-70 max-w-xl" style="font-family: var(--font-body)">Building and maintaining scalable backend services and cloud infrastructure. Designing RESTful APIs, optimizing database performance, and implementing CI/CD pipelines to streamline deployment workflows.</p>
+                            </div>
+                        </div>
+                        <div class="journey-current-dot absolute -left-2 top-10 w-4 h-4 rounded-full hidden md:block"></div>
+                    </div>
+                    <!-- Milestone 2 -->
+                    <div class="journey-item reveal-delay-1 reveal relative rounded-2xl p-8 md:p-10 border backdrop-blur-sm group hover:scale-[1.01] transition-transform duration-300" style="background: hsl(var(--journey-bg) / 0.6); border-color: hsl(var(--journey-accent) / 0.2);">
+                        <div class="absolute top-0 left-8 right-8 h-px" style="background: linear-gradient(90deg, transparent, hsl(var(--journey-accent) / 0.5), transparent);"></div>
+                        <div class="flex flex-col md:flex-row md:items-start md:gap-10">
+                            <div class="md:w-48 shrink-0 mb-4 md:mb-0">
+                                <span class="inline-block text-[0.65rem] tracking-[0.15em] uppercase px-3 py-1 rounded-full border mb-3" style="border-color: hsl(var(--journey-accent) / 0.4); color: hsl(var(--journey-accent))">Education</span>
+                                <p class="text-xs tracking-[0.1em] uppercase opacity-50" style="font-family: var(--font-body); color: hsl(var(--journey-accent))">May 2024</p>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl md:text-3xl font-bold leading-tight mb-1" style="font-family: var(--font-display)">B.E. in Computer Engineering</h3>
+                                <p class="text-sm opacity-50 mb-3" style="font-family: var(--font-body)">Atharva College of Engineering</p>
+                            </div>
+                        </div>
+                        <div class="absolute -left-2 top-10 w-4 h-4 rounded-full hidden md:block" style="background: hsl(var(--journey-accent) / 0.4); box-shadow: 0 0 12px hsl(var(--journey-accent) / 0.3);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="section-certs min-h-screen py-28 md:py-40 px-6 md:px-20 lg:px-28">
+            <div class="max-w-4xl mx-auto">
+                <p class="section-kicker reveal text-sm md:text-base tracking-[0.3em] uppercase mb-20 opacity-60" style="font-family: var(--font-body)">05 — Certificates & Credentials</p>
+                <div class="divide-y divide-white/10">
+                    <div class="reveal py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
+                        <div>
+                            <h3 class="cert-title text-2xl md:text-[1.7rem] font-bold">Google Cloud Professional Cloud Architect</h3>
+                            <p class="cert-meta text-base opacity-55 mt-1">Google Cloud · 2024</p>
+                        </div>
+                        <a href="#" class="verify-link cert-verify text-base md:text-lg">Verify Credential →</a>
+                    </div>
+                    <div class="reveal-delay-1 reveal py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
+                        <div>
+                            <h3 class="cert-title text-2xl md:text-[1.7rem] font-bold">TensorFlow Developer Certificate</h3>
+                            <p class="cert-meta text-base opacity-55 mt-1">DeepLearning.AI · 2023</p>
+                        </div>
+                        <a href="#" class="verify-link cert-verify text-base md:text-lg">Verify Credential →</a>
+                    </div>
+                    <div class="reveal-delay-2 reveal py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
+                        <div>
+                            <h3 class="cert-title text-2xl md:text-[1.7rem] font-bold">Advanced System Design</h3>
+                            <p class="cert-meta text-base opacity-55 mt-1">Educative · 2023</p>
+                        </div>
+                        <a href="#" class="verify-link cert-verify text-base md:text-lg">Verify Credential →</a>
+                    </div>
+                    <div class="reveal-delay-3 reveal py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
+                        <div>
+                            <h3 class="cert-title text-2xl md:text-[1.7rem] font-bold">PostgreSQL Optimization</h3>
+                            <p class="cert-meta text-base opacity-55 mt-1">DB Academy · 2023</p>
+                        </div>
+                        <a href="#" class="verify-link cert-verify text-base md:text-lg">Verify Credential →</a>
+                    </div>
+                </div>
+                <footer class="mt-40 pt-10 border-t border-white/5 text-center">
+                    <p class="text-[10px] tracking-[0.2em] uppercase opacity-30" style="font-family: var(--font-body)">© 2026 Dhaval Chandra — Built with precision</p>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

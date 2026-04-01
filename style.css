@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-skills: 'Inter', sans-serif;
+  --font-portfolio: 'Manrope', sans-serif;
+
+  /* Section 1: Intro — Deep Midnight Navy */
+  --intro-bg: 228 40% 8%;
+  --intro-fg: 45 30% 90%;
+  --intro-accent: 42 78% 60%;
+
+  /* Section 2: About — Warm Sand */
+  --about-bg: 38 35% 88%;
+  --about-fg: 220 20% 15%;
+  --about-accent: 15 65% 52%;
+
+  /* Section 3: Skills — Bold Coral/Terracotta */
+  --skills-bg: 18 100% 68%;
+  --skills-fg: 210 18% 7%;
+  --skills-muted: 17 100% 59%;
+
+  /* Section 4: Projects — Deep Forest Green */
+  --projects-bg: 191 62% 10%;
+  --projects-fg: 180 16% 92%;
+  --projects-accent: 176 67% 49%;
+  --projects-card: 191 46% 17%;
+
+  /* Section 4b: Featured — Warm Graphite (bridges from Skills) */
+  --featured-bg: 191 62% 10%;
+  --featured-fg: 180 16% 95%;
+  --featured-accent: 176 67% 49%;
+  --featured-card: 191 46% 17%;
+
+  /* Section 5: Journey — Warm Indigo */
+  --journey-bg: 260 30% 14%;
+  --journey-fg: 250 20% 88%;
+  --journey-accent: 280 60% 65%;
+
+  /* Section 6: Certificates — Rich Slate */
+  --certs-bg: 225 20% 16%;
+  --certs-fg: 210 15% 85%;
+  --certs-accent: 174 60% 50%;
+
+  /* Shared */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 42 78% 60%;
+  --primary-foreground: 228 40% 8%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Scroll smoothing */
+html {
+  scroll-behavior: smooth;
+}
+
+html > body > main > section {
+  min-height: 100svh;
+}
+
+@media (max-height: 500px) {
+  html {
+    scroll-snap-type: none;
+  }
+}
+
+/* Section color blocks */
+.section-intro {
+  background: hsl(var(--intro-bg));
+  color: hsl(var(--intro-fg));
+}
+
+.section-intro .intro-scroll-indicator {
+  color: hsl(var(--intro-fg));
+}
+
+.section-intro .scroll-line {
+  animation: scroll-line-float 1.7s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes scroll-line-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(9px);
+    opacity: 1;
+  }
+}
+
+.section-about {
+  background: hsl(var(--about-bg));
+  color: hsl(var(--about-fg));
+}
+
+.section-skills {
+  background: hsl(var(--skills-bg));
+  color: hsl(var(--skills-fg));
+}
+
+.skills-board {
+  align-items: start;
+}
+
+.skills-column {
+  min-width: 0;
+}
+
+.section-projects {
+  background: hsl(var(--projects-bg));
+  color: hsl(var(--projects-fg));
+}
+
+.section-featured {
+  background:
+    radial-gradient(1200px 520px at 50% -8%, hsl(176 67% 49% / 0.22), transparent 62%),
+    linear-gradient(180deg, hsl(var(--skills-bg) / 0.07) 0%, hsl(var(--featured-bg)) 24%),
+    hsl(var(--featured-bg));
+  color: hsl(var(--featured-fg));
+}
+
+.spotlight-index {
+  font-family: var(--font-skills);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.live-link {
+  border-color: hsl(var(--featured-accent) / 0.45);
+  color: hsl(var(--featured-accent));
+  background: hsl(var(--featured-accent) / 0.08);
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.live-link:hover {
+  transform: translateY(-1px);
+  border-color: hsl(var(--featured-accent) / 0.8);
+  background: hsl(var(--featured-accent) / 0.16);
+}
+
+.live-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 9999px;
+  background: hsl(var(--featured-accent));
+  box-shadow: 0 0 0 0 hsl(var(--featured-accent) / 0.75);
+  animation: pulse-live 1.8s infinite;
+}
+
+@keyframes pulse-live {
+  0% {
+    box-shadow: 0 0 0 0 hsl(var(--featured-accent) / 0.65);
+  }
+  70% {
+    box-shadow: 0 0 0 7px hsl(var(--featured-accent) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--featured-accent) / 0);
+  }
+}
+
+.section-journey {
+  background: hsl(var(--journey-bg));
+  color: hsl(var(--journey-fg));
+}
+
+.journey-current-dot {
+  background: hsl(145 72% 48%);
+  box-shadow: 0 0 0 0 hsl(145 72% 48% / 0.7), 0 0 12px hsl(145 72% 48% / 0.45);
+  animation: pulse-current-role 1.9s infinite;
+}
+
+.journey-item h3,
+.journey-item p,
+.journey-item span {
+  font-family: var(--font-portfolio) !important;
+}
+
+@keyframes pulse-current-role {
+  0% {
+    box-shadow: 0 0 0 0 hsl(145 72% 48% / 0.75), 0 0 12px hsl(145 72% 48% / 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 10px hsl(145 72% 48% / 0), 0 0 14px hsl(145 72% 48% / 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsl(145 72% 48% / 0), 0 0 12px hsl(145 72% 48% / 0.45);
+  }
+}
+
+.section-certs {
+  background: hsl(var(--certs-bg));
+  color: hsl(var(--certs-fg));
+}
+
+.section-certs .cert-title {
+  font-family: var(--font-portfolio) !important;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.section-certs .cert-meta,
+.section-certs .cert-verify {
+  font-family: var(--font-portfolio) !important;
+}
+
+.project-title {
+  font-family: var(--font-portfolio) !important;
+  letter-spacing: -0.01em;
+}
+
+.section-kicker {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Skills massive typography */
+.skill-item {
+  font-family: var(--font-portfolio);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.section-skills h3 {
+  font-family: var(--font-portfolio) !important;
+}
+
+.skill-group-label {
+  color: hsl(var(--skills-muted));
+  opacity: 1;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.55vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.skill-entry {
+  font-family: var(--font-portfolio);
+  color: hsl(var(--skills-fg));
+  font-size: clamp(1.9rem, 3vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+@media (max-width: 1024px) {
+  .skill-entry {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+  }
+}
+
+/* Credential link */
+.verify-link {
+  color: hsl(var(--certs-accent));
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.verify-link:hover {
+  border-bottom-color: hsl(var(--certs-accent));
+}
+
+/* Project pill tags */
+.tech-pill {
+  border: 1px solid hsl(var(--projects-accent));
+  color: hsl(var(--projects-accent));
+  border-radius: 9999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Custom animations for entrance */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Navbar active state */
+.nav-active {
+  color: white !important;
+}
+
+.nav-underline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 16px;
+  background-color: white;
+  border-radius: 9999px;
+}
