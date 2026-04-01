@@ -44,6 +44,13 @@
   --certs-fg: 210 15% 85%;
   --certs-accent: 174 60% 50%;
 
+  /* Section 7: Contact — Midnight Slate */
+  --contact-bg: 224 55% 7%;
+  --contact-fg: 210 18% 91%;
+  --contact-accent: 43 79% 57%;
+  --contact-card: 220 32% 13%;
+  --contact-border: 219 28% 22%;
+
   /* Shared */
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
@@ -225,6 +232,66 @@ html > body > main > section {
 .section-certs {
   background: hsl(var(--certs-bg));
   color: hsl(var(--certs-fg));
+}
+
+.section-contact {
+  background:
+    radial-gradient(1000px 520px at 50% -10%, hsl(var(--contact-accent) / 0.07), transparent 60%),
+    hsl(var(--contact-bg));
+  color: hsl(var(--contact-fg));
+}
+
+.contact-field {
+  background: hsl(var(--contact-card));
+  border: 1px solid hsl(var(--contact-border));
+  color: hsl(var(--contact-fg));
+  font-family: var(--font-portfolio);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-field::placeholder {
+  color: hsl(var(--contact-fg) / 0.35);
+}
+
+.contact-field:focus {
+  outline: none;
+  border-color: hsl(var(--contact-accent) / 0.6);
+  box-shadow: 0 0 0 3px hsl(var(--contact-accent) / 0.14);
+}
+
+.contact-send {
+  border: 1px solid hsl(var(--contact-accent));
+  background: hsl(var(--contact-accent));
+  color: hsl(var(--contact-bg));
+  font-family: var(--font-portfolio);
+  font-weight: 700;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.contact-send:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.contact-item {
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.contact-item:hover {
+  background: hsl(var(--contact-card));
+  border-color: hsl(var(--contact-border));
+}
+
+.contact-icon {
+  background: hsl(var(--contact-accent) / 0.12);
+  color: hsl(var(--contact-accent));
+}
+
+@media (max-width: 1024px) {
+  .section-contact .text-2xl {
+    font-size: 1.15rem;
+  }
 }
 
 .section-certs .cert-title {
