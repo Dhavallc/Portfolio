@@ -95,6 +95,11 @@ html > body > main > section {
   min-height: 100svh;
 }
 
+main > section:not(.section-intro) {
+  padding-left: clamp(1.5rem, 4vw, 6.5rem) !important;
+  padding-right: clamp(1.5rem, 4vw, 6.5rem) !important;
+}
+
 @media (max-height: 500px) {
   html {
     scroll-snap-type: none;
@@ -165,6 +170,7 @@ html > body > main > section {
   font-family: var(--font-skills);
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
+  opacity: 0.75;
 }
 
 .live-link {
@@ -307,6 +313,42 @@ html > body > main > section {
   font-family: var(--font-portfolio) !important;
 }
 
+.cert-badge {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cert-badge--openai {
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.9rem;
+  background: hsl(var(--certs-bg) / 0.35);
+  border: 1px solid hsl(var(--certs-accent) / 0.25);
+}
+
+.cert-badge--openai .openai-mark {
+  height: 52px;
+  width: auto;
+}
+
+.cert-badge--openai .openai-wordmark {
+  height: 32px;
+  width: auto;
+}
+
+.cert-badge .gcp-badge {
+  height: 140px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .cert-badge {
+    justify-content: flex-start;
+  }
+}
+
 .project-title {
   font-family: var(--font-portfolio) !important;
   letter-spacing: -0.01em;
@@ -314,6 +356,15 @@ html > body > main > section {
 
 .section-kicker {
   font-family: 'Space Grotesk', sans-serif !important;
+  font-size: clamp(1.2rem, 1rem + 0.9vw, 1.7rem);
+  font-weight: 700;
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Skills massive typography */
