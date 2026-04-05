@@ -492,3 +492,97 @@ main > section:not(.section-intro) {
   background-color: white;
   border-radius: 9999px;
 }
+
+/* Utility classes extracted from inline styles */
+.font-body-var {
+  font-family: var(--font-body) !important;
+}
+
+.font-display-var {
+  font-family: var(--font-display) !important;
+}
+
+.text-intro-accent {
+  color: hsl(var(--intro-accent));
+}
+
+.intro-btn-outline {
+  border-color: hsl(var(--intro-accent));
+  color: hsl(var(--intro-accent));
+}
+
+.intro-btn-solid {
+  background: hsl(var(--intro-accent));
+  color: hsl(var(--intro-bg));
+}
+
+.text-about-accent {
+  color: hsl(var(--about-accent));
+}
+
+.text-featured-accent {
+  color: hsl(var(--featured-accent));
+}
+
+.text-featured-fg {
+  color: hsl(var(--featured-fg));
+}
+
+.featured-card-surface {
+  background: hsl(var(--featured-card));
+  border-color: hsl(var(--featured-accent) / 0.15);
+}
+
+.featured-glow-bg {
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--featured-accent) / 0.08), transparent 60%);
+}
+
+.featured-stat-pill {
+  background: hsl(var(--featured-accent) / 0.15);
+  color: hsl(var(--featured-accent));
+}
+
+.featured-tech-pill {
+  border-color: hsl(var(--featured-accent) / 0.25);
+  color: hsl(var(--featured-accent));
+}
+
+.featured-icon {
+  color: hsl(var(--featured-fg));
+}
+
+.journey-card {
+  background: hsl(var(--journey-bg) / 0.6);
+  border-color: hsl(var(--journey-accent) / 0.2);
+}
+
+.journey-top-line {
+  background: linear-gradient(90deg, transparent, hsl(var(--journey-accent) / 0.5), transparent);
+}
+
+.journey-pill {
+  border-color: hsl(var(--journey-accent) / 0.4);
+  color: hsl(var(--journey-accent));
+}
+
+.journey-accent-text {
+  color: hsl(var(--journey-accent));
+}
+
+.journey-dot-muted {
+  background: hsl(var(--journey-accent) / 0.4);
+  box-shadow: 0 0 12px hsl(var(--journey-accent) / 0.3);
+}
+
+.text-contact-accent {
+  color: hsl(var(--contact-accent));
+}
+
+.text-contact-fg {
+  color: hsl(var(--contact-fg));
+}
+
+.intro-grid-overlay {
+  background-image: linear-gradient(hsl(var(--intro-fg)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--intro-fg)) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
