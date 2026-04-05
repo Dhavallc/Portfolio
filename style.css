@@ -93,11 +93,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll smoothing */
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 body {
-  overflow-x: clip;
+  overflow-x: hidden;
   width: 100%;
 }
 
