@@ -82,6 +82,10 @@ body {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
@@ -89,6 +93,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll smoothing */
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+  width: 100%;
 }
 
 html > body > main > section {
@@ -284,6 +294,18 @@ main > section:not(.section-intro) {
 .contact-item {
   border: 1px solid transparent;
   text-decoration: none;
+  min-width: 0;
+}
+
+.contact-item > span:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-item .text-2xl {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.25;
 }
 
 .contact-item:hover {
