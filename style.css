@@ -382,7 +382,7 @@ main > section:not(.section-intro) {
 
 .section-kicker {
   font-family: 'Space Grotesk', sans-serif !important;
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  font-size: clamp(1rem, 0.85rem + 1.1vw, 1.8rem) !important;
   font-weight: 700;
 }
 
@@ -437,7 +437,10 @@ main > section:not(.section-intro) {
 
 @media (max-width: 640px) {
   .skill-group-label {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+  .skill-entry {
+    font-size: 1.2rem;
   }
 }
 
