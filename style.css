@@ -235,6 +235,10 @@ main > section:not(.section-intro) {
   font-family: var(--font-portfolio) !important;
 }
 
+.journey-description {
+  opacity: 0.9 !important;
+}
+
 @keyframes pulse-current-role {
   0% {
     box-shadow: 0 0 0 0 hsl(145 72% 48% / 0.75), 0 0 12px hsl(145 72% 48% / 0.45);
@@ -378,7 +382,7 @@ main > section:not(.section-intro) {
 
 .section-kicker {
   font-family: 'Space Grotesk', sans-serif !important;
-  font-size: clamp(1.2rem, 1rem + 0.9vw, 1.7rem);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
   font-weight: 700;
 }
 
