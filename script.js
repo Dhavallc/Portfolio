@@ -108,6 +108,7 @@ projectCards.forEach(card => {
     });
 });
 
+/*
 // Down-scroll assist: if next section is more than half visible, settle to it.
 // Up-scroll remains free (no snapping).
 const mainSections = Array.from(document.querySelectorAll('main > section'));
@@ -143,3 +144,4 @@ function maybeSnapDownToNextSection() {
 }
 
 window.addEventListener('scroll', maybeSnapDownToNextSection, { passive: true });
+*/
