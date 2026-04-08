@@ -41,6 +41,7 @@
   --journey-bg: 260 35% 30%;
   --journey-fg: 250 20% 88%;
   --journey-accent: 280 60% 65%;
+  --journey-item: 260 40% 18%;
 
   /* Section 6: Certificates — Rich Slate */
   --certs-bg: 225 20% 16%;
@@ -595,4 +596,8 @@ main > section:not(.section-intro) {
 .intro-grid-overlay {
   background-image: linear-gradient(hsl(var(--intro-fg)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--intro-fg)) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+.journey-item{
+  background:hsl(var(--journey-item) ) ;
 }
