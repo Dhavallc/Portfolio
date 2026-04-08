@@ -599,5 +599,5 @@ main > section:not(.section-intro) {
 }
 
 .journey-item{
-  background:hsl(var(--journey-item) ) ;
+  background:hsl(var(--journey-item))!important ;
 }
