@@ -34,8 +34,11 @@
   --featured-accent: 176 67% 49%;
   --featured-card: 191 46% 17%;
 
-  /* Section 5: Journey — Warm Indigo */
+  /* Section 5: Journey — Warm Indigo 
+  OLD Color 
   --journey-bg: 260 30% 14%;
+  */
+  --journey-bg: 260 35% 30%;
   --journey-fg: 250 20% 88%;
   --journey-accent: 280 60% 65%;
 
