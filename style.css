@@ -38,10 +38,12 @@
   OLD Color 
   --journey-bg: 260 30% 14%;
   */
-  --journey-bg: 260 35% 30%;
+  /* --journey-bg: 260 35% 30%; */
+  --journey-bg: 260 35% 20%;
   --journey-fg: 250 20% 88%;
   --journey-accent: 280 60% 65%;
-  --journey-item: 260 40% 18%;
+  /* --journey-item: 260 40% 18%; */
+  --journey-item:260 40% 28%;
 
   /* Section 6: Certificates — Rich Slate */
   --certs-bg: 225 20% 16%;
@@ -578,6 +580,14 @@ main > section:not(.section-intro) {
 
 .journey-accent-text {
   color: hsl(var(--journey-accent));
+}
+
+.journey-date {
+  color: hsl(0 0% 100%) !important;
+}
+
+.journey-org {
+  opacity: 0.7;
 }
 
 .journey-dot-muted {
